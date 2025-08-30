@@ -1,0 +1,113 @@
+:root {
+  --clock-size: min(70vmin, 420px); /* Clock size responsive banaya */
+  --bg1: #0f172a; /* Background color dark */
+  --bg2: #1e293b; /* Gradient ka dusra shade */
+  --accent: #22d3ee; /* Cyan highlight color */
+  --accent-2: #a78bfa; /* Violet highlight color */
+  --tick: #e2e8f0; /* Tick marks ka color */
+  --num: #f8fafc; /* Numbers ka color */
+  --shadow: rgba(0,0,0,.45); /* Box shadow dark */
+}
+
+body {
+  margin: 0;
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  background: radial-gradient(1200px circle at 20% 10%, var(--bg2), var(--bg1));
+  font-family: Arial, sans-serif;
+}
+
+.card {
+    padding: 20px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px var(--shadow);
+    backdrop-filter: blu(6px);
+}
+
+.title {
+    text-align: center;
+    color: white;
+}
+
+.clock{
+    position: relative;
+    width: var(--clock-size);
+    height: var(--clock-size);
+    border-radius: 50%;
+    background: conic-gradient(from 220deg, rgba(34,211,238,.18), rgba(167,139,250,.18));
+    display: grid;
+    place-items: center;
+}
+
+.bezel{
+    position: absolute;
+    inset: 10px;
+    border-radius: 50%;
+    z-index: 5;
+}
+
+.hub{
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: white;
+    z-index: 5;
+}
+
+.hand{
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform-origin: bottom center;
+    transform: translate(-50%, 0) rotate(0deg);
+}
+
+.hand.hour{
+    width: 8px;
+    height: 30%;
+    background: grey;
+}
+
+.hand.minute {
+    width: 6px;
+    height: 40%;
+    background: lightgrey;
+}
+
+.hand.second {
+  width: 3px;
+  height: 45%;
+  background: red; /* Red second hand */
+}
+
+.tick {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 48%;
+    background: var(--tick);
+    transform-origin: bottom center;
+}
+
+.tick.hand{
+    background: white;
+    height: 52%;
+}
+
+.num {
+    position: absolute;
+    font-size: 24px;
+    color: var(--num);
+    font-weight: bold;
+}
+
+.digital {
+  text-align: center;
+  margin-top: 10px;
+  color: white;
+  font-size: 20px;
+}
